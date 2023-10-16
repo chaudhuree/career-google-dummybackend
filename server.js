@@ -2,15 +2,7 @@ const express = require("express");
 const app = express();
 const data = require("./data");
 
-// // Your JSON data
-// const data = {
-//   "spotlights": [
-//     // Your spotlight data here
-//   ],
-//   "jobs": [
-//     // Your job data here
-//   ]
-// };
+
 
 // Middleware to parse JSON in request body
 app.use(express.json());
@@ -39,6 +31,10 @@ app.get("/jobs/:id", (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("dummy jobs api");
+}
+);
 // Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
